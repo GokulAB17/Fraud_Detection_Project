@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style>
+    body{
+        background-color: #2E2E2E;
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-light bg-primary fixed-top">
+      <div class="container-fluid" text-white>
+        <form class="container-fluid justify-content-start">
+            <button class="btn btn-lg btn-outline-dark" type="button">Home</button>
+            <B span class="navbar-text" style="color:white">Machine Learning Deployment Application -- Copyright @ 2021 - All Rights Reserved - Gokul A.</B>
+        </form>
+      </div>
+    </nav>
+
+
+<div class="container" style="margin-top: 70px">
+    <div class="mx-auto" style="width: 900px;">
+        <div class="card border-primary text-dark mb-3" style="width: 900px;">
+            <div class="card-header">ML Application</div>
+            <div class="card-body">
+                <h1 class="card-title">Medical Insurance Claims Status Application</h1>
+                <p class="card-text">Please fill all the medical patients details as mentioned below. All the fields are mandatory.</p>
+
+                <!-- Form fields -->
+                <div class="mx-auto" style="width: 800px">
+                    <form action="{{ url_for('predict')}}" method="post">
+                        <div class="form-row">
+
+                            <!-- Area_Service + County + Age -->
+                            <div class="form-group col-md-5">
+                                <h4 label for="Area_Service">Service Area</h4>
+                                <select class="custom-select" name="name_Area_Service" id="id_Area_Service" required="required">
+                                    <<option value="Hudson Valley">Hudson Valley</option>
+                                    <option value="Western NY">Western NY</option>
+                                    <option value="Central NY">Central N</option>
+                                    <option value="Capital/Adirond">apital/Adirond</option>
+                                    <option value="Finger Lakes">Finger Lakes</option>
+                                    <option value="New York City">New York City</option>
+                                    <option value="Southern Tier">Southern Tier</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-5">
+                                <h4 label for="Hospital_County">Hospital County</h4>
+                                <select class="custom-select" name="name_Hospital_County" id="id_Hospital_County" required="required">
+                                    <<option value="Erie">Erie</option>
+                                    <<option value="Westchester">Westchester</option>
+                                    <<option value="Monroe">Monroe</option>
+                                    <<option value="Onondaga">Onondaga</option>
+                                    <<option value="Bronx">Bronx</option>
+                                    <<option value="Albany">Albany</option>
+                                    <<option value="Orange">Orange</option>
+                                    <<option value="Rockland">Rockland</option>
+                                    <<option value="Oneida">Oneida</option>
+                                    <<option value="Dutchess">Dutchess</option>
+                                    <<option value="Broome">Broome</option>
+                                    <<option value="Schenectady">Schenectady</option>
+                                    <<option value="Niagara">Niagara</option>
+                                    <<option value="Chemung">Chemung</option>
+                                    <<option value="Warren">Warren</option>
+                                    <<option value="Rensselaer">Rensselaer</option>
+                                    <<option value="Ulster">Ulster</option>
+                                    <<option value="Otsego">Otsego</option>
+                                    <<option value="Chautauqua">Chautauqua</option>
+                                    <<option value="St Lawrence">St Lawrence</option>
+                                    <<option value="Ontario">Ontario</option>
+                                    <<option value="Jefferson">Jefferson</option>
+                                    <<option value="Clinton">Clinton</option>
+                                    <<option value="Saratoga">Saratoga</option>
+                                    <<option value="Steuben">Steuben</option>
+                                    <<option value="Putnam">Putnam</option>
+                                    <<option value="Tompkins">Tompkins</option>
+                                    <<option value="Montgomery">Montgomery</option>
+                                    <<option value="Columbia">Columbia</option>
+                                    <<option value="Oswego">Oswego</option>
+                                    <<option value="Franklin">Franklin</option>
+                                    <<option value="Cattaraugus">Cattaraugus</option>
+                                    <<option value="Sullivan">Sullivan</option>
+                                    <<option value="Cayuga">Cayuga</option>
+                                    <<option value="Madison">Madison</option>
+                                    <<option value="Genesee">Genesee</option>
+                                    <<option value="Cortland">Cortland</option>
+                                    <<option value="Wayne">Wayne</option>
+                                    <<option value="Fulton">Fulton</option>
+                                    <<option value="Wyoming">Wyoming</option>
+                                    <<option value="Livingston">Livingston</option>
+                                    <<option value="Orleans">Orleans</option>
+                                    <<option value="Allegany">Allegany</option>
+                                    <<option value="Chenango">Chenango</option>
+                                    <<option value="Lewis">Lewis</option>
+                                    <<option value="Delaware">Delaware</option>
+                                    <<option value="Herkimer">Herkimer</option>
+                                    <<option value="Yates">Yates</option>
+                                    <<option value="Schuyler">Schuyler</option>
+                                    <<option value="Schoharie">Schoharie</option>
+                                    <<option value="Essex">Essex</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <h4 label for="Age">Age Group</h4>
+                                <select class="custom-select" name="name_Age" id="id_Age" required="required">
+                                    <<option value="70 or Older">70 or Older</option>
+                                    <option value="50 to 69">50 to 69</option>
+                                    <option value="30 to 49">30 to 49</option>
+                                    <option value="0 to 17">0 to 17</option>
+                                    <option value="18 to 29">18 to 29</option>
+                                </select>
+                            </div>
+                        </div><br>
+
+                        <!-- Gender -->
+                        <div class="form-group col-md-4" id = "id_Gender">
+                            <h4 label for="Gender">Select Gender</h4>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="form-check-input" id="customRadio1" name="name_Gender" value="Male">
+                                <label class="form-check-label" for="customRadio1">Male</label>
+                            </div>
+                                <div class="custom-control custom-radio">
+                                <input type="radio" id="customRadio2" name="name_Gender" class="form-check-input" value="Female">
+                                <label class="form-check-label" for="customRadio2">Female</label>
+                            </div>
+                        </div><br>
+
+                         <!-- Cultural_group + ethnicity + Days_spend_hsptl + Admission_type -->
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <h4 label for="Cultural_group ">Cultural group</h4>
+                                <select class="custom-select" name="name_Cultural_group" id="id_Cultural_group " required="required">
+                                    <<option value="White">White</option>
+                                    <option value="Black/African American">Black/African American</option>
+                                    <option value="Other Race">Other Race</option>
+                                    <option value="Unknown">Unknown</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <h4 label for="ethnicity">Ethnicity</h4>
+                                <select class="custom-select" name="name_ethnicity" id="id_ethnicity" required="required">
+                                    <option value="Not Span/Hispanic">Not Span/Hispanic</option>
+                                    <option value="Spanish/Hispanic">Spanish/Hispanic</option>
+                                    <option value="Unknown">Unknown</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-3" id="id_Days_spend_hsptl">
+                                <h4 label for="Days_spend_hsptl">Hospital days</h4>
+                                <input type="number" class="form-control" name="name_Days_spend_hsptl" min="1" max="120" placeholder="Days_spend_hsptl" required="required">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <h4 label for="Admission_type">Admission Type</h4>
+                                <select class="custom-select" name="name_Admission_type" id="id_Admission_type" required="required">
+                                    <option value="Emergency">Emergency</option>
+                                    <option value="Elective">Elective</option>
+                                    <option value="Urgent">Urgent</option>
+                                    <option value="Newborn">Newborn</option>
+                                    <option value="Trauma">Trauma</option>
+                                    <option value="Not Available">Not Available</option>
+                                </select>
+                            </div>
+                        </div><br>
+
+                        <!-- Home_or_self_care + ccs_diagnosis_code + ccs_procedure_code -->
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <h4 label for="Home_or_self_care">Home/Self Care Area</h4>
+                                <select class="custom-select" name="name_Home_or_self_care" id="id_Home_or_self_care" required="required">
+                                    <option value="Home or Self Care">Home or Self Care</option>
+                                    <option value="Home w/ Home Health Services">Home w/ Home Health Services</option>
+                                    <option value="Skilled Nursing Home">Skilled Nursing Home</option>
+                                    <option value="Expired">Expired</option>
+                                    <option value="Short-term Hospital">Short-term Hospital</option>
+                                    <option value="Inpatient Rehabilitation Facility">Inpatient Rehabilitation Facility</option>
+                                    <option value="Left Against Medical Advice">Left Against Medical Advice</option>
+                                    <option value="Psychiatric Hospital or Unit of Hosp">Psychiatric Hospital or Unit of Hosp</option>
+                                    <option value="Hospice - Medical Facility">Hospice - Medical Facility</option>
+                                    <option value="Hospice - Home">Hospice - Home</option>
+                                    <option value="Another Type Not Listed">Another Type Not Listed</option>
+                                    <option value="Facility w/ Custodial/Supportive Care">Facility w/ Custodial/Supportive Care</option>
+                                    <option value="Court/Law Enforcement">Court/Law Enforcement</option>
+                                    <option value="Medicare Cert Long Term Care Hospital">Medicare Cert Long Term Care Hospital</option>
+                                    <option value="Cancer Center or Children's Hospital">Cancer Center or Children's Hospital</option>
+                                    <option value="Hosp Basd Medicare Approved Swing Bed">Hosp Basd Medicare Approved Swing Bed</option>
+                                    <option value="Federal Health Care Facility">Federal Health Care Facility</option>
+                                    <option value="Critical Access Hospital">Critical Access Hospital</option>
+                                    <option value="Medicaid Cert Nursing Facility">Medicaid Cert Nursing Facility</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-3" id="id_ccs_diagnosis_code">
+                                <h4 label for="ccs_diagnosis_code">CCS Diagnosis Code</h4>
+                                <input type="number" class="form-control" name="name_ccs_diagnosis_code" min="1" max="670" placeholder="ccs_diagnosis_code" required="required">
+                            </div>
+                            <div class="form-group col-md-3" id="ccs_procedure_code">
+                                <h4 label for="ccs_procedure_code">CCS Procedure Code</h4>
+                                <input type="number" class="form-control" name="name_ccs_procedure_code" min="0" max="231" placeholder="ccs_procedure_code" required="required">
+                            </div>
+                        </div><br>
+
+                        <!-- Code_illness + Mortality_risk + Surg_Description + Emergency_dept_yes_No -->
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <h4 label for="Code_illness">Illness Code</h4>
+                                <select class="custom-select" name="name_Code_illness" id="id_Code_illness" required="required">
+                                    <option value="1">code 1</option>
+                                    <option value="2">code 2</option>
+                                    <option value="3">code 3</option>
+                                    <option value="4">code 4</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <h4 label for="Mortality_risk">Mortality Risk Level</h4>
+                                <select class="custom-select" name="name_Mortality_risk" id="id_Mortality_risk" required="required">
+                                    <option value="1">risk 1</option>
+                                    <option value="2">risk 2</option>
+                                    <option value="3">risk 3</option>
+                                    <option value="4">risk 4</option>
+                                </select>
+                            </div>
+                        </div><br>
+
+                        <!-- Surg_Description + Emergency_dept_yes_No -->
+                        <div class="form-group col-md-4" id = "id_Surg_Description">
+                            <h4 label for="Surg_Description">Surg/Medical Desc</h4>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="form-check-input" id="customRadio3" name="name_Surg_Description" value="Medical">
+                                <label class="form-check-label" for="customRadio3">Medical</label>
+                            </div>
+                                <div class="custom-control custom-radio">
+                                <input type="radio" class="form-check-input" id="customRadio4" name="name_Surg_Description" value="Surgical">
+                                <label class="form-check-label" for="customRadio4">Surgical</label>
+                            </div>
+                        </div><br>
+                        <div class="form-group col-md-4" id = "id_Emergency_dept_yes_No">
+                            <h4 label for="Emergency_dept_yes_No">Is Emergency</h4>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="form-check-input" id="customRadio5" name="name_Emergency_dept_yes_No" value="Y">
+                                <label class="form-check-label" for="customRadio5">Yes</label>
+                            </div>
+                                <div class="custom-control custom-radio">
+                                <input type="radio" id="customRadio6" name="name_Emergency_dept_yes_No" class="form-check-input" value="N">
+                                <label class="form-check-label" for="customRadio6">No</label>
+                            </div>
+                        </div><br>
+
+                        <!-- Tot_charg + Tot_cost + ratio_of_total_costs_to_total_charges + Payment_Typology-->
+                        <div class="form-row">
+                           <div class="form-group col-md-3" id="id_Tot_charg">
+                                 <h4 label for="Tot_charg">Total Charges</h4>
+                                 <input type="number" step=any class="form-control" name="name_Tot_charg" min="1" placeholder="Type the hospital charges" required="required">
+                            </div>
+                             <div class="form-group col-md-3" id="id_Tot_cost">
+                                 <h4 label for="Tot_cost">Treatment Cost</h4>
+                                 <input type="number" step=any class="form-control" name="name_Tot_cost" min="1" placeholder="Type the treatment cost" required="required">
+                            </div>
+                             <div class="form-group col-md-3" id="id_ratio_of_total_costs_to_total_charges">
+                                 <h4 label for="ratio_of_total_costs_to_total_charges">Ratio (costs:charges)</h4>
+                                 <input type="number" step=any class="form-control" name="name_ratio_of_total_costs_to_total_charges" min="0" max="157.55" placeholder="Type ratio" required="required">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <h4 label for="Payment_Typology">Payment Mode</h4>
+                                <select class="custom-select" name="name_Payment_Typology" id="id_Payment_Typology" required="required">
+                                    <option value="1">Payment mode (1)</option>
+                                    <option value="2">Payment mode (2)</option>
+                                    <option value="3">Payment mode (3)</option>
+                                    <option value="4">Payment mode (4)</option>
+                                </select>
+                            </div>
+                        </div><br>
+
+                        <button type="submit" class="btn btn-primary btn-lg"><i>Predict the status</i></button><br><br>
+                        
+                        <h5>Medical Insurance Claims Status is </h5>
+						{{ prediction_text }}	
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row bg-dark text-white fixed-bottom" style="height: 20px;">
+        <div class="col-sm-12 make-center"><small>Copyright @ 2021 - All Rights Reserved -Gokul A.</small></div>
+    </div>
+</div>
+
+</body>
+</html>
