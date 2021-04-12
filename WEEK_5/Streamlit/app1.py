@@ -40,7 +40,7 @@ st.set_page_config(layout='wide',initial_sidebar_state='expanded')
 #______________________________________________________________________________
 # Page Heading...
 st.title("Hospital Insurance Claim Fraud Detection")
-st.subheader('@Author: Shrikant U.')
+st.subheader('@Author: Gokul A..')
 
 #______________________________________________________________________________
 # Setting up image to a streamlit webpage....
